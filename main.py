@@ -2,14 +2,14 @@ import streamlit as st
 import requests as rq
 import pandas as pd
 import numpy as np
-from bs4 import BeautifulSoup
+import bs4 as bs
 import os
 
 def get_data_from_web():
     url = "http://vinomikulcik.cz"
     page = rq.get(url)
 
-    soup = BeautifulSoup(page.text, "lxml")
+    soup = bs.BeautifulSoup(page.text, "lxml")
 
     tables = soup.findAll("table")
 
